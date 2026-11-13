@@ -3,8 +3,18 @@
 <link rel="icon" type="image/png" sizes="192x192" href="./FWS_192.png?v=1">
 <link rel="icon" type="image/png" sizes="512x512" href="./FWS_512.png?v=1">
 <meta name="theme-color" content="#4e3423"><meta name="apple-mobile-web-app-title" content="FWS">
+<style>body{margin:0;font-family:-apple-system,sans-serif;background:#f6f1ea;color:#3a2a1e;text-align:center;padding:48px 24px}
+img{width:96px;height:96px;border-radius:22px}h1{font-size:20px;margin:16px 0 6px}p{color:#7a6a5e;font-size:15px;line-height:1.6;margin:4px 0}
+a.b{display:block;margin:28px auto 0;max-width:320px;background:#4e3423;color:#fff;text-decoration:none;font-weight:700;padding:15px;border-radius:14px}
+#g{display:none}</style>
 <script>
 var EXEC="https://script.google.com/macros/s/AKfycbyP6y5tUleXu_yAw3oR6524fRGaKXFLJyQWMqt3hZDip4U703PUjRFaxbRBSSBWO1QMiA/exec";
-if(EXEC.indexOf("https://")===0)location.replace(EXEC);
-</script>
-</head><body style="font-family:sans-serif;text-align:center;padding-top:40vh;color:#4e3423">FWS 여는 중…</body></html>
+var ok=EXEC.indexOf("https://")===0, seen=false;
+try{seen=localStorage.getItem("fwsSeen")==="1";localStorage.setItem("fwsSeen","1");}catch(e){}
+if(ok&&seen&&location.search.indexOf("setup")<0)location.replace(EXEC);
+</script></head><body>
+<div id="g"><img src="./FWS_180.png?v=1" alt="FWS"><h1>FWS 홈 화면에 추가</h1>
+<p>지금 이 화면에서 <b>공유 버튼</b> → <b>홈 화면에 추가</b></p><p>다음부터는 아이콘을 누르면 바로 열립니다.</p>
+<a class="b" id="go" href="#">FWS 바로 열기</a></div>
+<script>if(location.search)history.replaceState(null,"",location.pathname);document.getElementById("g").style.display="block";document.getElementById("go").href=ok?EXEC:"#";</script>
+</body></html>
